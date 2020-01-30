@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mslider" translate="label" type="text" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Magestio Slider</label>
+            <tab>magestio</tab>
+            <resource>Magestio_Slider::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration for sliders</label>
+                <field id="breakpoint_1" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Breakpoint 1</label>
+                    <comment>Add breakpoint. Ex.: 320. Applied to resolutions higher than set value.</comment>
+                    <tooltip>Below, in each carousel, you are able to set, for example, the items number in the carousels for each breakpoint. For example, you can set to display 2 items on mobile screens, 3 items on tablets and 4 items on desktop.</tooltip>
+                </field>
+                <field id="breakpoint_2" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Breakpoint 2</label>
+                    <comment>Add breakpoint. Ex.: 768. Applied to resolutions higher than set value.</comment>
+                </field>
+                <field id="breakpoint_3" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Breakpoint 3</label>
+                    <comment>Add breakpoint. Ex.: 1024. Applied to resolutions higher than set value.</comment>
+                </field>
+                <field id="breakpoint_4" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Breakpoint 4</label>
+                    <comment>Add breakpoint. Ex.: 1280. Applied to resolutions higher than set value.</comment>
+                </field>
+                <field id="mobile_breakpoint" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile breakpoint</label>
+                    <comment>Desktop minimun resolution</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magestio_Slider::slider" title="Slider" module="Magestio_Slider" sortOrder="5"   resource="Magestio_Slider::menu_slider" parent="Magestio_Core::menu"/>
+        <add id="Magestio_Slider::slider_manage" title="Sliders" module="Magestio_Slider" sortOrder="10"  resource="Magestio_Slider::menu_slider_manage" parent="Magestio_Slider::slider" action="mslider/slider/" />
+        <add id="Magestio_Slider::banner_manage" title="Banners" module="Magestio_Slider" sortOrder="15"  resource="Magestio_Slider::menu_slider_manage" parent="Magestio_Slider::slider" action="mslider/banner/" />
+        <add id="Magestio_Slider::configuration" title="Configuration" module="Magestio_Slider" sortOrder="20"  resource="Magestio_Slider::slider" parent="Magestio_Slider::slider" action="adminhtml/system_config/edit/section/slider" />
+    </menu>
+</config>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mslider>
+            <general>
+                <breakpoint_1>320</breakpoint_1>
+                <breakpoint_2>768</breakpoint_2>
+                <breakpoint_3>1024</breakpoint_3>
+                <breakpoint_4>1280</breakpoint_4>
+                <mobile_breakpoint>768</mobile_breakpoint>
+            </general>
+        </mslider>
+    </default>
+</config>

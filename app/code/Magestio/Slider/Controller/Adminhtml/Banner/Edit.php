@@ -1,0 +1,50 @@
+<?php
+
+namespace Magestio\Slider\Controller\Adminhtml\Banner;
+
+use Magestio\Slider\Controller\Adminhtml\Banner;
+
+/**
+ * Class Edit
+ * @package Magestio\Slider\Controller\Adminhtml\Banner
+ */
+class Edit extends Banner
+{
+    /**
+     * Dispatch request
+     */
+    public function execute()
+    {
+        $bannerId = $this->getRequest()->getParam('id');
+
+        $bannerModel = $this->_bannerFactory->create();
+
+        if ($bannerId) {
+            $bannerModel->load($bannerId);
+
+            if (!$bannerModel->getId()) {
+                /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+                $resultRedirect = $this->resultRedirectFactory->create();
+
+                return $resultRedirect->setPath('*/*/');
+            }
+        }
+
+        $formData = $this->_getSession()->getFormData(true);
+        if (!empty($formData)) {
+            $bannerModel->setData($formData);
+        }
+
+        $this->_coreRegistry->register('banner', $bannerModel);
+
+        $this->_eventManager->dispatch(
+            'mslider_edit_banner',
+            ['controller' => $this]
+        );
+
+        /** @var \Magento\Framework\View\Result\PageFactory $resultPage */
+        $resultPage = $this->_resultPageFactory->create();
+
+        return $resultPage;
+    }
+}
