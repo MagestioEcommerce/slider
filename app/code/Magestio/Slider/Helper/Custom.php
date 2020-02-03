@@ -130,7 +130,7 @@ class Custom extends AbstractHelper
         /* @var Slider $slider */
         $slider = $this->sliderModel->load($sliderId);
 
-        if (!count($this->_configFieldsSlider)) {
+        if (!isset($this->_configFieldsSlider)) {
             return new DataObject();
         }
 
