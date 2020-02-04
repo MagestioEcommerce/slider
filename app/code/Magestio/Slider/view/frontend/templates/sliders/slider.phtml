@@ -222,6 +222,7 @@ $helper         = $this->helper('Magestio\Slider\Helper\Custom');
 
                     $('.owl-carousel-custom-'+slider_id).owlCarousel({
                         nav               :parseInt(slider_config.nav) == 1 ? true : false,
+                        navText           :['',''],
                         dots              :parseInt(slider_config.dots) == 1 ? true : false,
                         center            :(slider_config.center == 1 && animate_Out) ? true : false,
                         items             :items,
