@@ -214,10 +214,10 @@ class Custom extends AbstractHelper
      */
     public function validateBannerDisplayDate($banner)
     {
-        $validFrom = $banner->getValidFrom();
-        $validTo   = $banner->getValidTo();
+        $validFrom = $banner->getValidFrom()->getTimestamp();
+        $validTo   = $banner->getValidTo()->getTimestamp();
 
-        $now = $this->date->gmtDate();
+        $now = strtotime($this->date->gmtDate());
 
         if ($validFrom <= $now && $validTo >= $now) {
             return true;
