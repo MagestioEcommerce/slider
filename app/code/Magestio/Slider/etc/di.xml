@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magestio\Slider\Api\Data\SliderSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Magestio\Slider\Api\Data\SliderInterface" type="Magestio\Slider\Model\Slider" />
+    <preference for="Magestio\Slider\Api\SliderRepositoryInterface" type="Magestio\Slider\Model\SliderRepository" />
+
+    <preference for="Magestio\Slider\Api\Data\BannerSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Magestio\Slider\Api\Data\BannerInterface" type="Magestio\Slider\Model\Banner" />
+    <preference for="Magestio\Slider\Api\BannerRepositoryInterface" type="Magestio\Slider\Model\BannerRepository" />
+</config>
