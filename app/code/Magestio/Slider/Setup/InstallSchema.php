@@ -164,6 +164,18 @@ class InstallSchema implements InstallSchemaInterface
                 null,
                 ['nullable' => true],
                 'Banner Sort Ordert'
+            )->addColumn(
+                'created_at',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+                'Created at'
+            )->addColumn(
+                'updated_at',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE],
+                'Updated at'
             )->addIndex(
                 $installer->getIdxName('magestio_slider_banners', ['id']),
                 ['id']
@@ -357,6 +369,18 @@ class InstallSchema implements InstallSchemaInterface
                 null,
                 ['nullable' => true, 'default' => '1'],
                 'Breakpoint 4 Items'
+            )->addColumn(
+                'created_at',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+                'Created at'
+            )->addColumn(
+                'updated_at',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+                null,
+                ['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT_UPDATE],
+                'Updated at'
             )->addIndex(
                 $installer->getIdxName('magestio_slider_sliders', ['id']),
                 ['status']

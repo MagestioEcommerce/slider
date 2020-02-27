@@ -31,6 +31,8 @@ interface BannerInterface
     const VALID_FROM = 'valid_from';
     const VALID_TO = 'valid_to';
     const SORT_ORDER = 'sort_order';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 
     /**
      * @return int
@@ -123,12 +125,12 @@ interface BannerInterface
     public function getCustomCss();
 
     /**
-     * @return DateTime
+     * @return string
      */
     public function getValidFrom();
 
     /**
-     * @return DateTime
+     * @return string
      */
     public function getValidTo();
 
@@ -136,6 +138,16 @@ interface BannerInterface
      * @return int
      */
     public function getSortOrder();
+
+    /**
+     * @return string
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return string
+     */
+    public function getUpdatedAt();
 
     /**
      * @param int $id
@@ -262,5 +274,15 @@ interface BannerInterface
      * @return BannerInterface
      */
     public function setSortOrder($sortOrder);
+
+    /**
+     * @return string
+     */
+    public function setCreatedAt($time);
+
+    /**
+     * @return string
+     */
+    public function setUpdatedAt($time);
 
 }

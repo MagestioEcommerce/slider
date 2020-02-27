@@ -283,6 +283,32 @@ class Slider extends AbstractModel implements SliderInterface
     }
 
     /**
+     * @return string
+     * @throws Exception
+     */
+    public function getCreatedAt()
+    {
+        $time = $this->getData(self::CREATED_AT);
+        if (!$time instanceof DateTime) {
+            $time = new DateTime($time);
+        }
+        return $time->format('d-m-y H:i:s');
+    }
+
+    /**
+     * @return string
+     * @throws Exception
+     */
+    public function getUpdatedAt()
+    {
+        $time = $this->getData(self::UPDATED_AT);
+        if (!$time instanceof DateTime) {
+            $time = new DateTime($time);
+        }
+        return $time->format('d-m-y H:i:s');
+    }
+
+    /**
      * @param int $id
      * @return SliderInterface
      */
@@ -523,6 +549,36 @@ class Slider extends AbstractModel implements SliderInterface
     public function setItemsBrk4($itemsBrk4)
     {
         return $this->setData(self::ITEMS_BRK4, $itemsBrk4);
+    }
+
+    /**
+     * @param DateTime $createdAt
+     * @return SliderInterface
+     * @throws Exception
+     */
+    public function setCreatedAt($createdAt)
+    {
+        if ($createdAt instanceof DateTime) {
+            $time = $createdAt;
+        } else {
+            $time = new DateTime($createdAt);
+        }
+        return $this->setData(self::CREATED_AT, $time);
+    }
+
+    /**
+     * @param DateTime $updatedAt
+     * @return SliderInterface
+     * @throws Exception
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        if ($updatedAt instanceof DateTime) {
+            $time = $updatedAt;
+        } else {
+            $time = new DateTime($updatedAt);
+        }
+        return $this->setData(self::UPDATED_AT, $time);
     }
 
 }

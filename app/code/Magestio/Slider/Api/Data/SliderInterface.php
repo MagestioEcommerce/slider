@@ -36,6 +36,8 @@ interface SliderInterface
     const ITEMS_BRK3 = 'items_brk3';
     const NAV_BRK4 = 'nav_brk4';
     const ITEMS_BRK4 = 'items_brk4';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 
     /**
      * @return int
@@ -171,6 +173,16 @@ interface SliderInterface
      * @return int
      */
     public function getItemsBrk4();
+
+    /**
+     * @return string
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return string
+     */
+    public function getUpdatedAt();
 
     /**
      * @param int $id
@@ -333,5 +345,15 @@ interface SliderInterface
      * @return SliderInterface
      */
     public function setItemsBrk4($itemsBrk4);
+
+    /**
+     * @return string
+     */
+    public function setCreatedAt($time);
+
+    /**
+     * @return string
+     */
+    public function setUpdatedAt($time);
 
 }

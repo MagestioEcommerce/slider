@@ -278,23 +278,55 @@ class Banner extends AbstractModel implements BannerInterface
     }
 
     /**
-     * @return DateTime
+     * @return string
      * @throws Exception
      */
     public function getValidFrom()
     {
         $time = $this->getData(self::VALID_FROM);
-        return new DateTime($time);
+        if (!$time instanceof DateTime) {
+            $time = new DateTime($time);
+        }
+        return $time->format('d-m-Y H:i:s');
     }
 
     /**
-     * @return DateTime
+     * @return string
      * @throws Exception
      */
     public function getValidTo()
     {
         $time = $this->getData(self::VALID_TO);
-        return new DateTime($time);
+        if (!$time instanceof DateTime) {
+            $time = new DateTime($time);
+        }
+        return $time->format('d-m-Y H:i:s');
+    }
+
+    /**
+     * @return string
+     * @throws Exception
+     */
+    public function getCreatedAt()
+    {
+        $time = $this->getData(self::CREATED_AT);
+        if (!$time instanceof DateTime) {
+            $time = new DateTime($time);
+        }
+        return $time->format('d-m-y H:i:s');
+    }
+
+    /**
+     * @return string
+     * @throws Exception
+     */
+    public function getUpdatedAt()
+    {
+        $time = $this->getData(self::UPDATED_AT);
+        if (!$time instanceof DateTime) {
+            $time = new DateTime($time);
+        }
+        return $time->format('d-m-y H:i:s');
     }
 
     /**
@@ -470,13 +502,14 @@ class Banner extends AbstractModel implements BannerInterface
     /**
      * @param DateTime $validFrom
      * @return BannerInterface
+     * @throws Exception
      */
     public function setValidFrom($validFrom)
     {
         if ($validFrom instanceof DateTime) {
-            $time = $validFrom->format('d-m-Y H:i:s');
-        } else {
             $time = $validFrom;
+        } else {
+            $time = new DateTime($validFrom);
         }
         return $this->setData(self::VALID_FROM, $time);
     }
@@ -484,13 +517,14 @@ class Banner extends AbstractModel implements BannerInterface
     /**
      * @param DateTime $validTo
      * @return BannerInterface
+     * @throws Exception
      */
     public function setValidTo($validTo)
     {
         if ($validTo instanceof DateTime) {
-            $time = $validTo->format('d-m-Y H:i:s');
-        } else {
             $time = $validTo;
+        } else {
+            $time = new DateTime($validTo);
         }
         return $this->setData(self::VALID_TO, $time);
     }
@@ -503,4 +537,35 @@ class Banner extends AbstractModel implements BannerInterface
     {
         return $this->setData(self::SORT_ORDER, $sortOrder);
     }
+
+    /**
+     * @param DateTime $createdAt
+     * @return BannerInterface
+     * @throws Exception
+     */
+    public function setCreatedAt($createdAt)
+    {
+        if ($createdAt instanceof DateTime) {
+            $time = $createdAt;
+        } else {
+            $time = new DateTime($createdAt);
+        }
+        return $this->setData(self::CREATED_AT, $time);
+    }
+
+    /**
+     * @param DateTime $updatedAt
+     * @return BannerInterface
+     * @throws Exception
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        if ($updatedAt instanceof DateTime) {
+            $time = $updatedAt;
+        } else {
+            $time = new DateTime($updatedAt);
+        }
+        return $this->setData(self::UPDATED_AT, $time);
+    }
+
 }

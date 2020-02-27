@@ -4,9 +4,13 @@ namespace Magestio\Slider\Model;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SortOrder;
+use Magento\Framework\Exception\CouldNotSaveException;
+use Magestio\Slider\Api\Data\BannerInterface;
 use Magestio\Slider\Api\Data\BannerSearchResultsInterface;
 use Magestio\Slider\Api\Data\BannerSearchResultsInterfaceFactory;
 use Magestio\Slider\Api\BannerRepositoryInterface;
+use Magestio\Slider\Model\Banner;
+use Magestio\Slider\Model\ResourceModel\Banner as ResourceBanner;
 use Magestio\Slider\Model\ResourceModel\Banner\CollectionFactory as BannerCollectionFactory;
 
 /**
@@ -15,6 +19,11 @@ use Magestio\Slider\Model\ResourceModel\Banner\CollectionFactory as BannerCollec
  */
 class BannerRepository implements BannerRepositoryInterface
 {
+
+    /**
+     * @var ResourceBanner
+     */
+    protected $resource;
 
     /**
      * @var BannerCollectionFactory
@@ -28,15 +37,35 @@ class BannerRepository implements BannerRepositoryInterface
 
     /**
      * BannerRepository constructor.
+     * @param ResourceBanner $resource
      * @param BannerCollectionFactory $bannerCollectionFactory
      * @param BannerSearchResultsInterfaceFactory $searchResultsFactory
      */
     public function __construct(
+        ResourceBanner $resource,
         BannerCollectionFactory $bannerCollectionFactory,
         BannerSearchResultsInterfaceFactory $searchResultsFactory
     ) {
+        $this->resource = $resource;
         $this->bannerCollectionFactory = $bannerCollectionFactory;
         $this->searchResultsFactory = $searchResultsFactory;
+    }
+
+    /**
+     * Save Banner data
+     *
+     * @param BannerInterface $banner
+     * @return Banner
+     * @throws CouldNotSaveException
+     */
+    public function save(BannerInterface $banner)
+    {
+        try {
+            $this->resource->save($banner);
+        } catch (\Exception $exception) {
+            throw new CouldNotSaveException(__($exception->getMessage()));
+        }
+        return $banner;
     }
 
     /**
