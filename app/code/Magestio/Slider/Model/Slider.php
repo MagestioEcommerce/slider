@@ -25,6 +25,13 @@ class Slider extends AbstractModel implements SliderInterface
     protected $bannerCollectionFactory;
 
     /**
+     * Prefix of model events names
+     *
+     * @var string
+     */
+    protected $_eventPrefix = 'slider_slider';
+
+    /**
      * Slider constructor.
      * @param Context $context
      * @param Registry $registry

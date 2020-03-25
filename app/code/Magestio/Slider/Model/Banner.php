@@ -46,6 +46,13 @@ class Banner extends AbstractModel implements BannerInterface
     protected $monolog;
 
     /**
+     * Prefix of model events names
+     *
+     * @var string
+     */
+    protected $_eventPrefix = 'slider_banner';
+
+    /**
      * Banner constructor.
      * @param Context $context
      * @param Registry $registry
